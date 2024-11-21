@@ -1,0 +1,64 @@
+DROP TABLE emp;
+ERROR:  table "emp" does not exist
+CREATE TABLE emp(name text, salary integer);
+INSERT INTO emp 
+VALUES ('name1', 1000),('name2', 2000);
+CREATE EXTENSION template;
+SELECT hello_SQL();
+NOTICE:  Hello, SQL!!!
+ hello_sql 
+-----------
+ 
+(1 row)
+
+SELECT hello_c();
+NOTICE:  Hello, C!!!
+ hello_c 
+---------
+ 
+(1 row)
+
+SELECT add_modulo(4, 2, 10);
+ add_modulo 
+------------
+          6
+(1 row)
+
+SELECT add_modulo(4, 2, 5);
+ add_modulo 
+------------
+          1
+(1 row)
+
+SELECT equation('x', '2', '0');
+ equation  
+-----------
+ x + 2 = 0
+(1 row)
+
+SELECT complex_add('(1,2)'::complex_number, '(3,4)'::complex_number);
+     complex_add     
+---------------------
+ (4.000000,6.000000)
+(1 row)
+
+SELECT name, check_salary(emp, 1500) FROM emp;
+ name  | check_salary 
+-------+--------------
+ name1 | f
+ name2 | t
+(2 rows)
+
+SELECT generate_record('name', 1500);
+ generate_record 
+-----------------
+ (name!!!,3000)
+(1 row)
+
+SELECT generate_table('name1', 1, 'name2', 2);
+ generate_table 
+----------------
+ (name1,1)
+ (name2,2)
+(2 rows)
+

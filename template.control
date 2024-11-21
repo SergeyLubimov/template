@@ -1,0 +1,4 @@
+comment = 'This is a possible template for real extension'
+default_version = '1.0'
+module_pathname = '$libdir/template'
+relocatable = false
